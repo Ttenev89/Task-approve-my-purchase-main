@@ -11,15 +11,11 @@ public abstract class Approver {
 
   public void approve(Item item) {
     if (canApprove(item)) {
-      System.out.println(
-          "%s approved purchase of %s with id %s that costs %s"
-              .formatted(getClass().getSimpleName(), item.type(), item.id(), item.cost()));
+      System.out.printf("%s approved purchase of %s with id %s that costs %s%n", getClass().getSimpleName(), item.type(), item.id(), item.cost());
       return;
     }
 
-    System.out.println(
-        "Purchase of %s with id %s needs approval from higher position than %s."
-            .formatted(item.type(), item.id(), getClass().getSimpleName()));
+    System.out.printf("Purchase of %s with id %s needs approval from higher position than %s.%n", item.type(), item.id(), getClass().getSimpleName());
     next.approve(item);
   }
 
