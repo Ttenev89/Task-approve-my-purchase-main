@@ -7,22 +7,20 @@ import common.Item;
  * methods are changed, be free to edit signatures.
  */
 public class ExecutiveMeeting extends Approver {
-  private static final ExecutiveMeeting INSTANCE = new ExecutiveMeeting();
+    private static final ExecutiveMeeting INSTANCE = new ExecutiveMeeting();
 
-  public static ExecutiveMeeting getInstance() {
-    return INSTANCE;
-  }
+    public static ExecutiveMeeting getInstance() {
+        return INSTANCE;
+    }
 
-  @Override
-  public void approve(Item item) {
+    @Override
+    public void approve(Item item) {
 
-    System.out.println(
-        "Purchase of %s with id %s that costs %s requires an approval of executive meeting."
-            .formatted(item.type(), item.id(), item.cost()));
-  }
+        System.out.printf("Purchase of %s with id %s that costs %s requires an approval of executive meeting.%n", item.type(), item.id(), item.cost());
+    }
 
-  @Override
-  protected boolean canApprove(Item item) {
-    return false;
-  }
+    @Override
+    protected boolean canApprove(Item item) {
+        return false;
+    }
 }
